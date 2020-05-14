@@ -21,6 +21,10 @@ class CreateTransactionService {
     const categoryRepository = getRepository(Category);
     const transactionRepository = getRepository(Transaction);
 
+    if (type === 'income' || 'outcome') {
+      throw new AppError('Type can only have *income* or *outcome* options');
+    }
+
     const checkCategory = await categoryRepository.findOne({
       where: { title: category },
     });
