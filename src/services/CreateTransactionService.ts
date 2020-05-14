@@ -21,7 +21,7 @@ class CreateTransactionService {
     const categoryRepository = getRepository(Category);
     const transactionRepository = getRepository(Transaction);
 
-    if (type === 'income' || 'outcome') {
+    if (!['income', 'outcome'].includes(type)) {
       throw new AppError('Type can only have *income* or *outcome* options');
     }
 

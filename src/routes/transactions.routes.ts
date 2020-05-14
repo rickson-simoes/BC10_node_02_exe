@@ -12,8 +12,9 @@ transactionsRouter.get('/', async (request, response) => {
   const transactionsRepository = getCustomRepository(TransactionsRepository);
 
   const Transactions = await transactionsRepository.find();
+  const teste = await transactionsRepository.getBalance();
 
-  console.log(Transactions);
+  console.log(teste);
 
   return response.json(Transactions);
 });
