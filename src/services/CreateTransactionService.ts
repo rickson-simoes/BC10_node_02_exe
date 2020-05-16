@@ -1,8 +1,10 @@
-import { getRepository } from 'typeorm';
+import { getCustomRepository, getRepository } from 'typeorm';
 import AppError from '../errors/AppError';
 
 import Transaction from '../models/Transaction';
 import Category from '../models/Category';
+
+import TransactionRepository from '../repositories/TransactionsRepository';
 
 interface RequestService {
   title: string;
@@ -19,10 +21,16 @@ class CreateTransactionService {
     category,
   }: RequestService): Promise<Transaction> {
     const categoryRepository = getRepository(Category);
-    const transactionRepository = getRepository(Transaction);
+    const transactionRepository = getCustomRepository(TransactionRepository);
 
     if (!['income', 'outcome'].includes(type)) {
-      throw new AppError('Type can only have *income* or *outcome* options');
+      throw new AppError('Type can only have income or outcome options', 400);
+    }
+
+    const checkTotal = (await transactionRepository.getBalance()).total;
+
+    if (type === 'outcome' && value > checkTotal) {
+      throw new AppError(`Damn! You don't have enough money :(`, 400);
     }
 
     const checkCategory = await categoryRepository.findOne({
