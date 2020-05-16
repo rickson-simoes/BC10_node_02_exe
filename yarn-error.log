@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add uuid-validator
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add -D @types/convert-csv-to-json
 
 PATH: 
   C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Kenai\bin;C:\Python27;C:\Python27\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;C:\ProgramData\chocolatey\bin;C:\Program Files\Java\jdk1.8.0_231\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs;C:\Android\sdk\platform-tools;C:\Android\sdk\tools;C:\Android\sdk\tools\bin;C:\Android\sdk\emulator;C:\Program Files (x86)\Yarn\bin;C:\Users\Kenai\AppData\Local\jdk-11.0.2\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\Kenai\AppData\Roaming\Composer\vendor\bin;C:\Users\Kenai\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files (x86)\yarn\bin;C:\Users\Kenai\AppData\Local\GitHubDesktop\bin;C:\Android\sdk\platform-tools;C:\Android\sdk\tools;C:\Users\Kenai\AppData\Local\Yarn\bin;C:\Users\Kenai\AppData\Roaming\npm;C:\Android\sdk\emulator;C:\Android\sdk\tools\bin
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/uuid-validator: Not found
+  Error: https://registry.yarnpkg.com/@types%2fconvert-csv-to-json: Not found
       at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66096:18)
       at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140748:22)
       at Request.emit (events.js:310:20)
@@ -41,6 +41,7 @@ npm manifest:
     },
     "dependencies": {
       "@types/csv-parse": "^1.2.2",
+      "convert-csv-to-json": "^0.0.15",
       "csv-parse": "^4.8.8",
       "dotenv": "^8.2.0",
       "express": "^4.17.1",
@@ -48,7 +49,8 @@ npm manifest:
       "multer": "^1.4.2",
       "pg": "^8.0.0",
       "reflect-metadata": "^0.1.13",
-      "typeorm": "^0.2.24"
+      "typeorm": "^0.2.24",
+      "uuid-validate": "^0.0.3"
     },
     "devDependencies": {
       "@types/express": "4.17.3",
@@ -56,6 +58,7 @@ npm manifest:
       "@types/jest": "^25.2.1",
       "@types/multer": "^1.4.2",
       "@types/supertest": "^2.0.8",
+      "@types/uuid-validate": "^0.0.1",
       "@typescript-eslint/eslint-plugin": "^2.27.0",
       "@typescript-eslint/parser": "^2.27.0",
       "cross-env": "^7.0.2",
@@ -736,6 +739,11 @@ Lockfile:
     integrity sha512-wcax7/ip4XSSJRLbNzEIUVy2xjcBIZZAuSd2vtltQfRK7kxhx5WMHbLHkYdxN3wuQCrwpYrg86/9byDjPXoGMA==
     dependencies:
       "@types/superagent" "*"
+  
+  "@types/uuid-validate@^0.0.1":
+    version "0.0.1"
+    resolved "https://registry.yarnpkg.com/@types/uuid-validate/-/uuid-validate-0.0.1.tgz#b4eedecbd9db25851490d65a58f13feaa89dd509"
+    integrity sha512-RbX9q0U00SLoV+l7loYX0Wrtv4QTClBC0QcdNts6x2b5G1HJN8NI9YlS1HNA6THrI9EH3OXSgya6eMQIlDjKFA==
   
   "@types/yargs-parser@*":
     version "15.0.0"
@@ -1446,6 +1454,11 @@ Lockfile:
     version "1.0.4"
     resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
     integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
+  
+  convert-csv-to-json@^0.0.15:
+    version "0.0.15"
+    resolved "https://registry.yarnpkg.com/convert-csv-to-json/-/convert-csv-to-json-0.0.15.tgz#f0ac35129b61d857cb370e4eaf2abd4779c2c15a"
+    integrity sha512-mXpZWoSc3RXWuA50GAx/BAj+7GIWLmYCr2/IoW9L+cwwvRt6TkTY+15emUyeNInyfl5uZf+H6sQQkpKhjwJB0w==
   
   convert-source-map@^1.4.0, convert-source-map@^1.6.0, convert-source-map@^1.7.0:
     version "1.7.0"
@@ -5504,6 +5517,11 @@ Lockfile:
     version "1.0.1"
     resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
     integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+  
+  uuid-validate@^0.0.3:
+    version "0.0.3"
+    resolved "https://registry.yarnpkg.com/uuid-validate/-/uuid-validate-0.0.3.tgz#e30617f75dc742a0e4f95012a11540faf9d39ab4"
+    integrity sha512-Fykw5U4eZESbq739BeLvEBFRuJODfrlmjx5eJux7W817LjRaq4b7/i4t2zxQmhcX+fAj4nMfRdTzO4tmwLKn0w==
   
   uuid@^3.3.2:
     version "3.4.0"
