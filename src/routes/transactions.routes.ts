@@ -67,11 +67,11 @@ transactionsRouter.post(
   async (request, response) => {
     const transactionImport = new ImportTransactionsService();
 
-    await transactionImport.execute({
-      filename: request.file.filename,
+    const transactions = await transactionImport.execute({
+      filename: request.file.path,
     });
 
-    return response.status(200).json({ ok: true });
+    return response.status(200).json(transactions);
   },
 );
 
